@@ -7,49 +7,48 @@ public class DataPage extends JFrame{
     public JLabel namaLabel;
     public JLabel nimLabel;
     public JLabel kelasLabel;
-    public JPanel panel3;
+    public JPanel panel;
     private String nama, nim, kelas;
 
-    public String getNama() {
-        return nama;
-    }
+    public DataPage() {
 
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
-    public String getNim() {
-        return nim;
-    }
-
-    public void setNim(String nim) {
-        this.nim = nim;
-    }
-
-    public String getKelas() {
-        return kelas;
-    }
-
-    public void setKelas(String kelas) {
-        this.kelas = kelas;
-    }
-
-
-    public DataPage(){
-        JFrame frameData = new JFrame();
+        JFrame frameData = new JFrame("Output Data");
         frameData.setPreferredSize(new Dimension(350,300));
         frameData.setResizable(false);
-        frameData.add(panel3);
+        frameData.add(panel);
         frameData.pack();
-        frameData.setLocationRelativeTo(null);
         frameData.setVisible(true);
-        frameData.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameData.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frameData.setLocationRelativeTo(null);
 
     }
+        public void setNama(String nama) {
+            this.nama = nama;
+            namaLabel.setText("Nama: " + nama);
+        }
 
-    public void setData(String nama,String nim, String kelas){
-        namaLabel.setText("Nama      : " + nama);
-        namaLabel.setText("NIM       : " + nim);
-        namaLabel.setText("Kelas     : " + kelas);
-    }
+        public void setNim(String nim) {
+            this.nim = nim;
+            nimLabel.setText("NIM: " + nim);
+        }
+
+        public void setKelas(String kelas) {
+            this.kelas = kelas;
+            kelasLabel.setText("Kelas: " + kelas);
+        }
+
+        public String getNama() {
+            return nama;
+        }
+
+        public String getNim() {
+            return nim;
+        }
+
+        public String getKelas() {
+            return kelas;
+        }
+
+
+
 }

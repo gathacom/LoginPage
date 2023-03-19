@@ -13,7 +13,7 @@ public class LoginPage extends JFrame implements ActionListener{
     public LoginPage() {
         // Set up the login window
         JFrame frame = new JFrame("Login Page");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.setPreferredSize(new Dimension(350, 300));
         frame.setResizable(false);
         setLocationRelativeTo(null);

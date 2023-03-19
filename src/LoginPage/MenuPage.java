@@ -42,7 +42,10 @@ public class MenuPage extends JFrame {
             String nim = nimField.getText();
             String kelas = (String)classCB.getSelectedItem();
 
-            dataPage.setData(nama,nim,kelas);
+            DataPage dataPage = new DataPage();
+            dataPage.setNama(nama);
+            dataPage.setNim(nim);
+            dataPage.setKelas(kelas);
 
             dataPage.setVisible(true);
         }
