@@ -6,32 +6,45 @@ import java.awt.event.ActionEvent;
 
 public class MenuPage extends JFrame {
     private JTextField nameField;
-    private JPanel panel1;
+    private JPanel panel2;
     private JTextField nimField;
     private JComboBox classCB;
     private JButton submitButton;
     private JButton logoutButton;
+    private DataPage dataPage;
 
     public MenuPage(){
-        JFrame frameMenu = new JFrame();
-
-        frameMenu.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        super("Menu Page");
+        JFrame frameMenu = new JFrame("Menu Page");
         frameMenu.setPreferredSize(new Dimension(350,300));
         frameMenu.setResizable(false);
-
         //add panel
-        frameMenu.add(panel1);
+        frameMenu.add(panel2);
         frameMenu.pack();
         frameMenu.setLocationRelativeTo(null);
         frameMenu.setVisible(true);
+        frameMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         logoutButton.addActionListener(this::actionPerformed);
+        submitButton.addActionListener(this::actionPerformed);
 
     }
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==logoutButton){
             LoginPage loginPage = new LoginPage();
+        } else if (e.getSource()==submitButton) {
+            dispose();
+            dataPage = new DataPage();
+
+            String nama = nameField.getText();
+            String nim = nimField.getText();
+            String kelas = (String)classCB.getSelectedItem();
+
+            dataPage.setData(nama,nim,kelas);
+
+            dataPage.setVisible(true);
         }
     }
 }
