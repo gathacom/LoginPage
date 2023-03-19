@@ -11,19 +11,19 @@ public class MenuPage extends JFrame {
     private JComboBox classCB;
     private JButton submitButton;
     private JButton logoutButton;
-    private JFrame frame;
 
     public MenuPage(){
-        frame = new JFrame();
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(350,300));
-        frame.setResizable(false);
+        JFrame frameMenu = new JFrame();
+
+        frameMenu.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frameMenu.setPreferredSize(new Dimension(350,300));
+        frameMenu.setResizable(false);
 
         //add panel
-        frame.add(panel1);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frameMenu.add(panel1);
+        frameMenu.pack();
+        frameMenu.setLocationRelativeTo(null);
+        frameMenu.setVisible(true);
 
         logoutButton.addActionListener(this::actionPerformed);
 

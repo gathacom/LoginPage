@@ -6,13 +6,18 @@ import java.awt.event.*;
 
 public class LoginPage extends JFrame implements ActionListener{
     private JTextField usernameField;
-    private JPanel panel1;
     private JPasswordField passwordField;
     private JButton loginButton;
-    private JFrame frame;
+    private JPanel panel1;
+
     public LoginPage() {
-        frame = new JFrame("Login Page");
+        JFrame frame = new JFrame("Login Page");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(350, 300));
+        frame.setResizable(false);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         frame.setPreferredSize(new Dimension(350, 300));
         frame.setResizable(false);
 
@@ -22,31 +27,24 @@ public class LoginPage extends JFrame implements ActionListener{
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        loginButton.addActionListener(this::actionPerformed);
+        loginButton.addActionListener(this);
 
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
     }
 
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(java.awt.event.ActionEvent e) {
         String usernameValue = usernameField.getText();
-        String passwordValue = passwordField.getText();
+        String passwordValue = new String(passwordField.getPassword());
+
 
         if (usernameValue.equals("yogapsb")&&passwordValue.equals("yogapsb")){
-            JOptionPane.showMessageDialog(this, "Login Successful");
-            MenuPage menu = new MenuPage();
+                // Login successful, dispose the login page window
             dispose();
+            JOptionPane.showMessageDialog(panel1, "Login Successful");
+            new MenuPage();
+                // Show the main application window
         }
         else {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Your username or password is invalid",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel1, " Invalid Username or Password");
         }
     }
     public static void main(String[] args) {
